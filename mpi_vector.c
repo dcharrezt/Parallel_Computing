@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <mpi.h>
+
 #define TAM 1000
 
 int main(int argc, char **argv){
@@ -33,7 +34,6 @@ int main(int argc, char **argv){
 		{
 			MPI_Recv( &a , 1 ,MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG ,MPI_COMM_WORLD, &status);
 			st += a;
-		
 		}
 
 		printf("%d \n",st);
@@ -47,7 +47,7 @@ int main(int argc, char **argv){
 			s += vet[i];
 		}
 
-		printf("%d\n", s);
+		// printf("%d\n", s);
 
 		MPI_Send( &s , 1,MPI_INT,0,tag,MPI_COMM_WORLD);
 
