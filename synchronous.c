@@ -3,7 +3,7 @@
 
 #define TIMES 10
 
-int main(int argc, char **argv){
+int main(int argc, char **argv) {
 
 	int i, my_rank, procs, count = 0;
 
@@ -14,7 +14,7 @@ int main(int argc, char **argv){
 	if(my_rank == 0) {
 		for (i = 1; i < TIMES; i++) {
 			count++;
-			MPI_Send( &count, 1, MPI_INT, 1, 0, MPI_COMM_WORLD);
+			MPI_Ssend( &count, 1, MPI_INT, 1, 0, MPI_COMM_WORLD);
 			
 			MPI_Recv( &count, 1, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, 
 								MPI_COMM_WORLD, MPI_STATUS_IGNORE);
@@ -27,11 +27,11 @@ int main(int argc, char **argv){
 			MPI_Recv( &count, 1, MPI_INT, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
 			printf("1 Recieved PING counter %i and sends to 0\n", count);
 			// count ++;
-			MPI_Send( &count, 1, MPI_INT, 0, 0, MPI_COMM_WORLD);
+			MPI_Ssend( &count, 1, MPI_INT, 0, 0, MPI_COMM_WORLD);
 		}
 	}
 
-    MPI_Finalize();
+	MPI_Finalize();
 
 	return 0;
 }
