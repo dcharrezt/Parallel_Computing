@@ -72,7 +72,7 @@ num_workers = size-1;
          
          MPI_Send(&offset, 1, MPI_INT, dest, mtype, MPI_COMM_WORLD);
          MPI_Send(&rows, 1, MPI_INT, dest, mtype, MPI_COMM_WORLD);
-		 MPI_Send(&a[offset][0], rows*NCA, MPI_DOUBLE, dest, mtype,
+         MPI_Send(&a[offset][0], rows*NCA, MPI_DOUBLE, dest, mtype,
                    MPI_COMM_WORLD);
          MPI_Send(&b, NCA*NCB, MPI_DOUBLE, dest, mtype, MPI_COMM_WORLD);
          offset = offset + rows;
