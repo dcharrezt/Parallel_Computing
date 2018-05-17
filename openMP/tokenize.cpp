@@ -57,7 +57,6 @@ void Tokenize( char*  lines[], int line_count, int thread_count) {
             my_rank, lines[i]);
       }
    } 
-
 }
 
 void Tokenize_2(
